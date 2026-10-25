@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Todo List</title>
+</head>
+<body>
+    <div class="app">
+    
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">✓</div>
+                <span>TaskFlow</span>
+            </div>
+    
+            <div class="sidebar-label">WORKSPACE</div>
+    
+            <div class="nav-item active">
+                <span class="nav-icon">▦</span>
+                <span>My Tasks</span>
+            </div>
+    
+            <div class="sidebar-bottom">
+                <strong>Stay focused.</strong>
+                <p>Small steps every day lead to big results. Keep moving forward.</p>
+            </div>
+        </aside>
+    
+        <main class="main-content">
+    
+            <header class="topbar">
+                <div>
+                    <div class="eyebrow">YOUR WORKSPACE</div>
+                    <h1>My Tasks</h1>
+                    <p class="subtitle">
+                        Organize your day. Focus on what matters.
+                    </p>
+                </div>
+    
+                <div class="avatar">TF</div>
+            </header>
+    
+            <section class="welcome-banner">
+                <h2>Make today count ✨</h2>
+                <p>
+                    Plan your next move, write down your priorities,
+                    and turn your ideas into action.
+                </p>
+            </section>
+    
+            <section>
+                <div class="section-heading">
+                    <h2>Create a task</h2>
+                    <span>Stay organized</span>
+                </div>
+    
+                <div class="task-form">
+                    <label class="field-label" for="todo-name">
+                        TASK NAME
+                    </label>
+    
+                    <input id="todo-name" onkeydown="handle_enter_btn(event)" class="todo_input" type="text"
+                        placeholder="What do you need to do?">
+    
+                    <div class="date-field">
+                        <label class="field-label" for="todo-date">
+                            DUE DATE
+                        </label>
+    
+                        <input id="todo-date" class="date_input" type="date">
+                    </div>
+    
+                    <button class="add-button" onclick="add_task()">
+                        + &nbsp; Add task
+                    </button>
+                </div>
+            </section>
+    
+            <section>
+                <div class="section-heading">
+                    <h2>Your task list</h2>
+                    <span>Keep the momentum going</span>
+                </div>
+    
+                <div class="tasks_box"></div>
+            </section>
+    
+        </main>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

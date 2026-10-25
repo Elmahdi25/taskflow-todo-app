@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="taskflow-----todo-list">TaskFlow --- Todo List</h1>
+<h3 id="a-clean-responsive-task-manager-built-with-html-css-and-javascript">A clean, responsive task manager built with HTML, CSS, and JavaScript.</h3>
+<h2 id="preview">Preview</h2>
+<p>LINK</p>
+<p><img src="docs/1.gif" alt="1"></p>
+<br>
+<p><img src="docs/2.png" alt="2"></p>
+<br>
+<p><img src="docs/3.png" alt="3"></p>
+<br>
+<p><img src="https://img.shields.io/badge/HTML5-Structure-orange?logo=html5&amp;logoColor=white" alt="HTML5">
+<img src="https://img.shields.io/badge/CSS3-Responsive UI-blue?logo=css3&amp;logoColor=white" alt="CSS3">
+<img src="https://img.shields.io/badge/JavaScript-DOM &amp; Logic-yellow?logo=javascript&amp;logoColor=black" alt="JavaScript">
+<img src="https://img.shields.io/badge/Status-Learning Project-purple" alt="Status">
+:::</p>
+<hr>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#1-short-project">Short Project</a></li>
+<li><a href="#2-description">Description</a></li>
+<li><a href="#3-javascript-concepts">JavaScript Concepts</a></li>
+<li><a href="#4-how-the-functions-work">How the Functions Work</a></li>
+<li><a href="#5-function-workflow-diagram">Function Workflow Diagram</a></li>
+<li><a href="#6-installation-and-usage">Installation and Usage</a></li>
+</ol>
+<hr>
+<h2 id="1-short-project">1. Short Project</h2>
+<p><strong>TaskFlow</strong> is a simple todo list application that lets users add tasks
+with due dates and delete tasks when they are no longer needed.</p>
+<p>The project is built to practise core JavaScript skills, especially
+arrays, objects, functions, DOM manipulation, events, loops, and date
+handling.</p>
+<h2 id="2-description">2. Description</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li>Add a task by entering its name.</li>
+<li>Choose a due date, or use today's date when no date is selected.</li>
+<li>Display tasks and their dates on the page.</li>
+<li>Delete a task from the list.</li>
+<li>Add a task by clicking the <strong>Add task</strong> button or pressing <strong>Enter</strong>
+in the task-name input.</li>
+<li>Responsive interface for desktop and mobile screens.</li>
+</ul>
+<h3 id="preview-1">Preview</h3>
+<pre class="hljs"><code><div>&lt;!-- Add a real screenshot or GIF to your repository, then replace this placeholder. --&gt;
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;!-- Example: ![TaskFlow demo](assets/taskflow-demo.gif) --&gt;
+</div></code></pre>
+<blockquote>
+<p><strong>Demo media:</strong> Add a screenshot or GIF of your application here. For
+example, save it as <code>assets/taskflow-demo.gif</code> and uncomment the image
+line above.</p>
+</blockquote>
+<h3 id="technologies">Technologies</h3>
+<hr>
+<p>Technology                          Role</p>
+<hr>
+<p>HTML5                               Defines the input fields, button,
+and task container.</p>
+<p>CSS3                                Styles the dashboard and makes the
+layout responsive.</p>
+<h2 id="javascript--------------------------stores-tasks-handles-eventsformats-dates-and-updates-thepage">JavaScript                          Stores tasks, handles events,
+formats dates, and updates the
+page.</h2>
+<h2 id="3-javascript-concepts">3. JavaScript Concepts</h2>
+<p>This project uses several important JavaScript fundamentals.</p>
+<h3 id="31-variables-and-constants">3.1 Variables and Constants</h3>
+<p><code>let</code> is used for the task array because its contents change as tasks
+are added or removed. <code>const</code> is used for values that are not reassigned
+within a function.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> todo_list = [];
+
+<span class="hljs-keyword">const</span> todo_input = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;.todo_input&quot;</span>);
+</div></code></pre>
+<h3 id="32-arrays-and-objects">3.2 Arrays and Objects</h3>
+<p>Each task is stored as an object with a <code>name</code> and a <code>date</code> property.
+The objects are kept inside the <code>todo_list</code> array.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> todo_list = [];
+
+todo_list.<span class="hljs-title function_">push</span>({
+  <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Learn JavaScript&quot;</span>,
+  <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;25/10/2026&quot;</span>
+});
+</div></code></pre>
+<ul>
+<li><strong>Array:</strong> stores the collection of tasks.</li>
+<li><strong>Object:</strong> represents one task and its properties.</li>
+<li><strong><code>push()</code>:</strong> adds a task object to the end of the array.</li>
+<li><strong><code>splice()</code>:</strong> removes an item from the array by index.</li>
+</ul>
+<h3 id="33-dom-manipulation">3.3 DOM Manipulation</h3>
+<p>The Document Object Model (DOM) lets JavaScript access and change HTML
+elements.</p>
+<pre class="hljs"><code><div><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;.todo_input&quot;</span>);
+</div></code></pre>
+<p>In this project, <code>querySelector()</code> finds an element by its CSS class.
+The code reads input values, clears fields, and updates the <code>.tasks_box</code>
+container.</p>
+<h3 id="34-events-and-event-handling">3.4 Events and Event Handling</h3>
+<p>The HTML uses event attributes to call JavaScript functions:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;add_task()&quot;</span>&gt;</span>Add task<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">onkeydown</span>=<span class="hljs-string">&quot;handle_enter_btn(event)&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;todo_input&quot;</span>&gt;</span>
+</div></code></pre>
+<ul>
+<li><code>onclick</code> calls <code>add_task()</code> when the button is clicked.</li>
+<li><code>onkeydown</code> calls <code>handle_enter_btn(event)</code> when a key is pressed.</li>
+<li><code>event.key</code> identifies which key was pressed.</li>
+</ul>
+<p>For a larger application, <code>addEventListener()</code> is generally easier to
+maintain because it separates JavaScript behavior from HTML markup.</p>
+<h3 id="35-functions-and-separation-of-responsibilities">3.5 Functions and Separation of Responsibilities</h3>
+<p>Each function has a specific job:</p>
+<ul>
+<li><code>add_task()</code> collects and stores the input.</li>
+<li><code>generate_HTML()</code> renders the current array on the page.</li>
+<li><code>delete_task(index)</code> removes a selected task.</li>
+<li><code>handle_enter_btn(event)</code> supports keyboard submission.</li>
+</ul>
+<p>Keeping these responsibilities separate makes the code easier to
+understand and improve.</p>
+<h3 id="36-loops-and-array-indexes">3.6 Loops and Array Indexes</h3>
+<p><code>generate_HTML()</code> uses a <code>for</code> loop to visit each task. The loop index
+is also used to identify which task should be deleted.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; todo_list.<span class="hljs-property">length</span>; i++) {
+  <span class="hljs-keyword">const</span> object = todo_list[i];
+  <span class="hljs-comment">// Render this task.</span>
+}
+</div></code></pre>
+<p>Array indexes begin at <code>0</code>, so the first task has index <code>0</code>, the second
+has index <code>1</code>, and so on.</p>
+<h3 id="37-date-handling-and-default-values">3.7 Date Handling and Default Values</h3>
+<p>The date input returns a string in <code>YYYY-MM-DD</code> format when a date is
+selected. If the field is empty, the code creates today's date using
+<code>new Date()</code>.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> date_value =
+  date_input.<span class="hljs-property">value</span> ||
+  <span class="hljs-string">`<span class="hljs-subst">${today.getFullYear()}</span>-<span class="hljs-subst">${<span class="hljs-built_in">String</span>(today.getMonth() + <span class="hljs-number">1</span>).padStart(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;0&quot;</span>)}</span>-<span class="hljs-subst">${<span class="hljs-built_in">String</span>(today.getDate()).padStart(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;0&quot;</span>)}</span>`</span>;
+</div></code></pre>
+<p>The <code>||</code> operator uses the right-hand value when the input value is
+empty. <code>getMonth()</code> is zero-based, so <code>+ 1</code> is required.
+<code>padStart(2, &quot;0&quot;)</code> keeps the month and day at two digits.</p>
+<p>The code then splits the date into parts and displays it as
+<code>DD/MM/YYYY</code>.</p>
+<h3 id="38-template-literals">3.8 Template Literals</h3>
+<p>Backticks let JavaScript insert variable values into strings:</p>
+<pre class="hljs"><code><div>tasks_box.<span class="hljs-property">innerHTML</span> += <span class="hljs-string">`
+  &lt;p&gt;
+    <span class="hljs-subst">${object.name}</span>
+    <span class="hljs-subst">${object.date}</span>
+    &lt;button onclick=&quot;delete_task(<span class="hljs-subst">${i}</span>)&quot;&gt;Delete&lt;/button&gt;
+  &lt;/p&gt;
+`</span>;
+</div></code></pre>
+<p>This is called a <strong>template literal</strong>. It makes it convenient to build
+HTML strings, but user-provided text should not be inserted into
+<code>innerHTML</code> without proper handling.</p>
+<h3 id="39-array-mutation-and-re-rendering">3.9 Array Mutation and Re-rendering</h3>
+<p>When a task is deleted, <code>splice()</code> changes the original array. Calling
+<code>generate_HTML()</code> afterward redraws the list so the interface matches
+the data.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">function</span> <span class="hljs-title function_">delete_task</span>(<span class="hljs-params">index</span>) {
+  todo_list.<span class="hljs-title function_">splice</span>(index, <span class="hljs-number">1</span>);
+  <span class="hljs-title function_">generate_HTML</span>();
+}
+</div></code></pre>
+<p>This demonstrates a basic UI pattern: <strong>update the data, then update the
+displayed interface</strong>.</p>
+<h2 id="4-how-the-functions-work">4. How the Functions Work</h2>
+<h3 id="add_task"><code>add_task()</code></h3>
+<p><strong>Purpose:</strong> Read the user's input, determine the task date, store the
+task, clear the form, and refresh the task list.</p>
+<p>Step by step:</p>
+<ol>
+<li>Select the task-name and date inputs.</li>
+<li>Read the task name.</li>
+<li>Use the selected date, or calculate today's date if the date field
+is empty.</li>
+<li>Convert the date from <code>YYYY-MM-DD</code> to <code>DD/MM/YYYY</code>.</li>
+<li>Push a new <code>{ name, date }</code> object into <code>todo_list</code>.</li>
+<li>Clear both input fields.</li>
+<li>Call <code>generate_HTML()</code> to refresh the displayed tasks.</li>
+</ol>
+<p><strong>Current limitation:</strong> The function does not prevent an empty task name
+from being added. Input validation would improve it.</p>
+<h3 id="generate_html"><code>generate_HTML()</code></h3>
+<p><strong>Purpose:</strong> Display all task objects in the <code>todo_list</code> array.</p>
+<p>Step by step:</p>
+<ol>
+<li>Select the <code>.tasks_box</code> container.</li>
+<li>Clear its current content using <code>innerHTML = &quot;&quot;</code>.</li>
+<li>Loop through the array.</li>
+<li>Read each task object.</li>
+<li>Add its name, date, and a Delete button to the container.</li>
+<li>Pass the task's array index to <code>delete_task(index)</code>.</li>
+</ol>
+<p>The function redraws the complete list each time it runs. This is
+straightforward for a small learning project.</p>
+<h3 id="delete_taskindex"><code>delete_task(index)</code></h3>
+<p><strong>Purpose:</strong> Remove one task.</p>
+<p>Step by step:</p>
+<ol>
+<li>Receive the index of the selected task.</li>
+<li>Use <code>splice(index, 1)</code> to remove one item at that index.</li>
+<li>Call <code>generate_HTML()</code> so the remaining tasks appear on the page.</li>
+</ol>
+<h3 id="handle_enter_btnevent"><code>handle_enter_btn(event)</code></h3>
+<p><strong>Purpose:</strong> Allow the user to add a task by pressing Enter.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">function</span> <span class="hljs-title function_">handle_enter_btn</span>(<span class="hljs-params">event</span>) {
+  <span class="hljs-keyword">if</span> (event.<span class="hljs-property">key</span> === <span class="hljs-string">&quot;Enter&quot;</span>) {
+    <span class="hljs-title function_">add_task</span>();
+  }
+}
+</div></code></pre>
+<p>The function checks whether the pressed key is <code>&quot;Enter&quot;</code>. If it is, it
+calls <code>add_task()</code>. Otherwise, it does nothing.</p>
+<h2 id="5-function-workflow-diagram">5. Function Workflow Diagram</h2>
+<p>The diagram below shows how user actions flow through the functions and
+how the array and page stay in sync.</p>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart TD
+    A([User interacts with the page]) --> B{How does the user submit?}
+    B -->|Clicks Add| C[add_task]
+    B -->|Presses Enter| D[handle_enter_btn]
+    D --> E{Is the key Enter?}
+    E -->|No| F([Do nothing])
+    E -->|Yes| C
+
+    C --> G[Read task name and date]
+    G --> H{Was a date selected?}
+    H -->|Yes| I[Use selected date]
+    H -->|No| J[Calculate today's date]
+    I --> K[Format date as DD/MM/YYYY]
+    J --> K
+    K --> L[Push task object into todo_list]
+    L --> M[Clear input fields]
+    M --> N[generate_HTML]
+
+    N --> O[Clear tasks_box]
+    O --> P[Loop through todo_list]
+    P --> Q[Render task, date, and Delete button]
+    Q --> R([Updated task list appears])
+
+    R --> S{User clicks Delete?}
+    S -->|Yes| T[delete_task index]
+    T --> U[Remove task with splice]
+    U --> N
+    S -->|No| V([Wait for next action])
+
+    classDef action fill:#e8eaff,stroke:#6366f1,color:#25265e
+    classDef data fill:#e3f8ef,stroke:#20a36a,color:#174d35
+    classDef decision fill:#fff3d9,stroke:#d89a18,color:#63430b
+    class C,D,G,K,N,T,U action
+    class L,P,Q data
+    class B,E,H,S decision
+</div></code></pre>
+<h3 id="the-key-idea">The key idea</h3>
+<p><code>todo_list</code> is the <strong>data source</strong> for the displayed task list.</p>
+<ul>
+<li>Adding a task changes the array, then redraws the page.</li>
+<li>Deleting a task changes the array, then redraws the page.</li>
+<li><code>generate_HTML()</code> reads the current array to decide what should be
+displayed.</li>
+</ul>
+<p>This is a simple example of keeping application data and the user
+interface synchronized.</p>
+<h2 id="6-installation-and-usage">6. Installation and Usage</h2>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li>A web browser.</li>
+<li>A code editor such as <a href="https://code.visualstudio.com/">Visual Studio
+Code</a>.</li>
+<li>Basic knowledge of HTML, CSS, and JavaScript.</li>
+</ul>
+<h3 id="installation">Installation</h3>
+<ol>
+<li>
+<p>Clone the repository:</p>
+<pre class="hljs"><code><div>git <span class="hljs-built_in">clone</span> https://github.com/YOUR_GITHUB_USERNAME/taskflow-todo-app.git
+</div></code></pre>
+</li>
+<li>
+<p>Open the project folder:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> taskflow-todo-app
+</div></code></pre>
+</li>
+<li>
+<p>Open <code>index.html</code> in your browser, or use the <strong>Live Server</strong>
+extension in Visual Studio Code.</p>
+</li>
+</ol>
+<h3 id="usage">Usage</h3>
+<ol>
+<li>Enter a task name.</li>
+<li>Optionally choose a due date.</li>
+<li>Click <strong>Add task</strong> or press <strong>Enter</strong> in the task-name field.</li>
+<li>If no date is selected, today's date is used.</li>
+<li>Click <strong>Delete</strong> to remove a task.</li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong> Tasks are currently stored in a JavaScript array. Refreshing
+the page clears the list because the project does not yet save tasks
+to persistent storage.</p>
+</blockquote>
+<h3 id="what-i-learned">What I Learned</h3>
+<ul>
+<li>How to store related data using arrays and objects.</li>
+<li>How to select and update HTML elements using the DOM.</li>
+<li>How to respond to click and keyboard events.</li>
+<li>How to write functions with separate responsibilities.</li>
+<li>How to format dates and provide a default value.</li>
+<li>How to update the interface after adding or deleting data.</li>
+<li>Why input validation, persistent storage, and safe DOM rendering
+matter.</li>
+</ul>
+<h3 id="future-goal">Future Goal</h3>
+<p>Evolve TaskFlow from a simple todo list into a more complete task
+manager with task completion, editing, filters, and persistent storage.</p>
+<hr>
+<div class="{align="center"}">
+<p><strong>Built as a JavaScript learning project.</strong></p>
+</div>
+
+</body>
+</html>
