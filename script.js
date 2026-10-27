@@ -1,4 +1,5 @@
-let todo_list = [];
+let get_todo_values = localStorage.getItem("todo_list");
+let todo_list = JSON.parse(get_todo_values) || [];
 function add_task() {
   const todo_input = document.querySelector(".todo_input");
   const todo_value = todo_input.value;
@@ -13,9 +14,10 @@ function add_task() {
   todo_list.push({ name: todo_value, date: formatted_date });
   todo_input.value = "";
   date_input.value = "";
+  localStorage.setItem("todo_list", JSON.stringify(todo_list));
   generate_HTML();
 }
-
+generate_HTML();
 function generate_HTML() {
   let tasks_box = document.querySelector(".tasks_box");
   tasks_box.innerHTML = "";
@@ -33,6 +35,7 @@ function generate_HTML() {
 
 function delete_task(index) {
   todo_list.splice(index, 1);
+  localStorage.setItem("todo_list", JSON.stringify(todo_list));
   generate_HTML();
 }
 function handle_enter_btn(event) {
